@@ -1,0 +1,10 @@
+<div class="card" *ngIf="article">
+  <h5 class="card-header">{{article.id}}</h5>
+  <div class="card-body">
+    <h2 class="card-title">{{ article.attributes.title }}</h2>
+    {{article.attributes.body.value}}
+  </div>
+</div>
+<button (click)="goBack()" class="btn btn-primary mt-3 mr-1">go back</button>
+<button type="button" class="btn btn-primary mt-3 mr-1" (click)="editArticle()">Edit</button>
+<button type="button" class="btn btn-primary mt-3" (click)="deleteArticle()">Delete</button>

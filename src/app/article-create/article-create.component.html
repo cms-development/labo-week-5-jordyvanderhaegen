@@ -1,0 +1,36 @@
+<h1 class="mb-5">Create article</h1>
+<!-- <div *ngIf="article">
+  <div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Title</label>
+    <div class="col-10">
+      <input class="form-control" type="text" id="example-title-input" [(ngModel)]="article.attributes.title" name="title">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="example-search-input" class="col-2 col-form-label">Body</label>
+    <div class="col-10">
+      <textarea class="form-control" id="example-body-input" rows="15" [(ngModel)]="article.attributes.body.value"></textarea>
+    </div>
+  </div>
+</div> -->
+<form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+  <div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Title</label>
+    <div class="col-10">
+      <input class="form-control" type="text" formControlName="title" name="title">
+      
+    </div>
+    <div *ngIf="(title.dirty || title.touched) && title.invalid && title.errors.required" class="invalid-feedback offset-2 col-10 d-block">Title is required</div>
+    <div *ngIf="(title.dirty || title.touched) && title.invalid && title.errors.minlength" class="invalid-feedback offset-2 col-10 d-block">Title must be 4 characters</div>
+  </div>
+  <div class="form-group row">
+    <label for="example-search-input" class="col-2 col-form-label">Body</label>
+    <div class="col-10">
+      <textarea class="form-control" id="example-body-input" rows="15" formControlName="body"></textarea>
+    </div>
+  </div>
+  <div *ngIf="(body.dirty || body.touched) && body.invalid && body.errors.required" class="invalid-feedback offset-2 col-10 d-block">Body is required</div>
+  <div *ngIf="(body.dirty || body.touched) && body.invalid && body.errors.minlength" class="invalid-feedback offset-2 col-10 d-block">Body must be 10 characters</div>
+  <button type="submit" class="btn btn-primary mb-2" [disabled]="!articleForm.valid">Create</button>
+</form>
+

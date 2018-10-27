@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-4" *ngFor="let article of articles">
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+      <div class="card-header">{{ article.attributes.title }}</div>
+      <div class="card-body">
+        {{ article.attributes.body.value | slice:-7 }}
+        <a routerLink="/article/{{article.id}}" class="text-white">
+          <h5 class="card-title">Get detail</h5>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
