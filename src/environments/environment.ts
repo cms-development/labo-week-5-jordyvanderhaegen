@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  client_id: 'f88f5145-c49d-42e7-a8bd-8d6caacb1ed5',
+  client_secret: 'wickedman',
   drupalApi : {
     url: 'http://localhost/',
     endPoints: {
